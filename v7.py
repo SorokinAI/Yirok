@@ -1,0 +1,1031 @@
+# import
+import time
+import turtle
+import webbrowser
+import random
+from tkinter import *
+from tkinter import messagebox
+
+
+# global var's
+
+
+def init():
+    global ok
+    ok = 0
+
+    global global_roots
+    global_roots = True
+
+# Documentation
+print("Версия кода: 7.6")
+print("                ")
+
+
+class Documentation_Level:  # дополнительная документация в консоле/documentation to console
+    def __init__(self, number, difficulty):
+
+        self.number = number
+        self.difficulty = difficulty
+        print("Задачка создана")
+        print("Созданная задачка имеет номер:", self.number, "и сложность", self.difficulty)
+        print("\n")
+
+    def start(self):
+        print("Задачка под номером:", self.number, "и сложностью", self.difficulty, "запущена")
+        print("\n")
+
+
+# уроки в документации/lesson's to documentation
+lev1 = Documentation_Level(1, 'Normal')
+lev2 = Documentation_Level(2, 'Hard')
+lev3 = Documentation_Level(2, 'Easy')
+lev4 = Documentation_Level(4, 'Easy')
+lev5 = Documentation_Level(5, 'Easy')
+lev6 = Documentation_Level(6, 'Hard')
+game_paint = Documentation_Level("game 1", "Easy")
+print("                                    ")
+print("                                    ")
+
+# game
+
+# игровые настройки/game settings
+
+sizeA = 5
+
+
+def playt():  # код игры/game code
+    time.sleep(3)
+    game_paint.start()
+
+    wind = turtle.Screen()
+    wind.title("Электронная тетрадь «Юрок»")
+    wind.setup(1280, 780)
+
+    turt1 = turtle.Turtle()
+
+    # цвета/color's
+
+    def color1():
+        color = 'black'
+        turt1.color(color)
+
+    def color2():
+        color = 'red2'
+        turt1.color(color)
+
+    def color3():
+        color = 'gold'
+        turt1.color(color)
+
+    def color4():
+        color = 'violet'
+        turt1.color(color)
+
+    def color5():
+        color = 'lime green'
+        turt1.color(color)
+
+    def color6():
+        color = 'dark green'
+        turt1.color(color)
+
+    def color7():
+        color = 'cyan'
+        turt1.color(color)
+
+    def color8():
+        color = 'RoyalBlue3'
+        turt1.color(color)
+
+    # размер ручки turtle/size pen turtle
+
+    def siz1():
+        turt1.pensize(1)
+
+    def siz2():
+        turt1.pensize(2)
+
+    def siz3():
+        turt1.pensize(3)
+
+    def siz4():
+        turt1.pensize(4)
+
+    def siz5():
+        turt1.pensize(5)
+
+    def siz6():
+        turt1.pensize(6)
+
+    def siz7():
+        turt1.pensize(7)
+
+    def siz8():
+        turt1.pensize(8)
+
+    def siz9():
+        turt1.pensize(9)
+
+    def siz10():
+        turt1.pensize(10)
+
+    # джостик/gamepad
+
+    def right():
+        turt1.right(10)
+
+    def left():
+        turt1.left(10)
+
+    def up():
+        turt1.forward(10)
+
+    def down():
+        turt1.back(10)
+
+    def cleargame():
+        wind.reset()
+
+
+# окно настройки черепашки/window setting's turtle
+    gui_game = Tk()
+    gui_game.geometry("500x550")
+    gui_game.title("Параметры")
+    gui_game["bg"] = "white"
+    gui_game.resizable(width=False, height=False)
+    col0 = Label(gui_game, bg='white', text="Выбери цвет кисти:", font=21)
+    col1 = Button(gui_game, text="Чёрный", fg='snow', bg='black', border=0, width=11, cursor="hand2", command=color1)
+    col2 = Button(gui_game, text="Красный", fg='black', bg='red2', border=0, width=11, cursor="hand2", command=color2)
+    col3 = Button(gui_game, text="Жёлтый", fg='black', bg='gold', border=0, width=11, cursor="hand2", command=color3)
+    col4 = Button(gui_game, text="Пурпурный", fg='black', bg='violet', border=0, width=11, cursor="hand2", command=color4)
+    col5 = Button(gui_game, text="Светло-зел", fg='black', bg='lime green', border=0, width=11, cursor="hand2", command=color5)
+    col6 = Button(gui_game, text="Тёмно-зел.", fg='black', bg='dark green', border=0, width=11, cursor="hand2", command=color6)
+    col7 = Button(gui_game, text="Голубой", fg='black', bg='cyan', border=0, width=11, cursor="hand2", command=color7)
+    col8 = Button(gui_game, text="Синий", fg='black', bg='RoyalBlue3', width=11, border=0, cursor="hand2", command=color8)
+    clear = Button(gui_game, bg='white', text="Очисчить экран🧹", border=0, cursor="hand2", command=cleargame)
+    s0 = Label(gui_game, bg='white', text="Выбери размер кисти:", font=21)
+    s1 = Button(gui_game, bg='silver', text="1(маленький)", border=0, width=11, cursor="hand2", command=siz1)
+    s2 = Button(gui_game, bg='silver', text="2", border=0, width=11, cursor="hand2", command=siz2)
+    s3 = Button(gui_game, bg='silver', text="3", border=0, width=11, cursor="hand2", command=siz3)
+    s4 = Button(gui_game, bg='silver', text="4", border=0, width=11, cursor="hand2", command=siz4)
+    s5 = Button(gui_game, bg='silver', text="5", border=0, width=11, cursor="hand2", command=siz5)
+    s6 = Button(gui_game, bg='silver', text="6", border=0, width=11, cursor="hand2", command=siz6)
+    s7 = Button(gui_game, bg='silver', text="7", border=0, width=11, cursor="hand2", command=siz7)
+    s8 = Button(gui_game, bg='silver', text="8", border=0, width=11, cursor="hand2", command=siz8)
+    s9 = Button(gui_game, bg='silver', text="9", border=0, width=11, cursor="hand2", command=siz9)
+    s10 = Button(gui_game, bg='silver', text="10(большой)", width=11, border=0, cursor="hand2", command=siz10)
+
+    clear.grid(column=4, row=2)
+    col0.grid(column=2, row=1)
+    col1.grid(column=2, row=2)
+    col2.grid(column=2, row=3)
+    col3.grid(column=2, row=4)
+    col4.grid(column=2, row=5)
+    col5.grid(column=3, row=2)
+    col6.grid(column=3, row=3)
+    col7.grid(column=3, row=4)
+    col8.grid(column=3, row=5)
+    s0.grid(column=2, row=6)
+    s1.grid(column=2, row=7)
+    s2.grid(column=2, row=8)
+    s3.grid(column=2, row=9)
+    s4.grid(column=2, row=10)
+    s5.grid(column=2, row=11)
+    s6.grid(column=3, row=7)
+    s7.grid(column=3, row=8)
+    s8.grid(column=3, row=9)
+    s9.grid(column=3, row=10)
+    s10.grid(column=3, row=11)
+
+    time.sleep(3)
+
+    # окно рисования/window for paint
+    wind.reset()
+    wind.bgpic("")
+    wind.title("Paint Юрок")
+    wind.setup(1280, 700)
+    turt1.penup()
+    turt1.speed(1000)
+    turt1.hideturtle()
+    turt1.goto(-600, 300)
+    turt1.home()
+    turt1.pensize(5)
+    turt1.pendown()
+    turt1.pensize(sizeA)
+    turt1.showturtle()
+
+# джостики2/gamepad2
+
+# WASD
+    turtle.onkeypress(right, 'd')
+    turtle.onkeypress(left, 'a')
+    turtle.onkeypress(up, 'w')
+    turtle.onkeypress(down, 's')
+
+# стрелочки/arrows
+    turtle.onkeypress(right, 'Right')
+    turtle.onkeypress(left, 'Left')
+    turtle.onkeypress(up, 'Up')
+    turtle.onkeypress(down, 'Down')
+
+
+
+
+    turtle.listen()
+
+    gui_game.mainloop()
+
+
+def on_closing():  # выход/exit
+    if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        global_root.destroy()
+
+
+init()
+
+# главное окно/main window
+
+global_root = Tk()
+global_root.iconbitmap('icon.ico')
+global_root.geometry("1280x800")
+global_root.title("Юрок")
+global_root.protocol("WM_DELETE_WINDOW", on_closing)
+global_root["bg"] = "white"
+
+
+
+
+global_root.image = PhotoImage(file="bg/BG_global.png")
+back = Label(global_root, image=global_root.image, border=0)
+back.place(x=0, y=0)
+
+yir = Label(global_root, text="Юрок", fg="red", bg="white", font="Impact 42")
+yir2 = Label(global_root, text="-как урок, только проще!f", fg="red", bg="white", font="Impact 20")
+
+
+def site_school102():
+    print("System: open 'http://школа102.рф/'")
+    webbrowser.open("http://школа102.рф/")
+
+
+def global_root_stop():
+    global global_roots
+    if global_roots == True:
+        global_roots = False
+        global_root.destroy()
+    elif global_roots == False:
+        pass
+
+
+# задачки
+
+
+def number1():
+    lev1.start()
+    global_root.destroy()
+
+    global ok
+
+    def on_closing_number1():
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            root.destroy()
+
+    root = Tk()
+    root.geometry("1280x800")
+    root.title("Юрок №1")
+    root.iconbitmap("icon.ico")
+    root.protocol("WM_DELETE_WINDOW", on_closing_number1)
+    root["bg"] = "white"
+
+    root.image = PhotoImage(file="bg/BG.png")
+    back = Label(root, image=root.image, border=0)
+    back.place(x=150, y=20)
+
+    def prover_num1():  # проверка номера 1/examination number 1
+        global ok
+
+        otv1_ = otv1.get()
+        otv2_ = otv2.get()
+        print("System (норма 11 35 (True)):", otv1_, otv2_)
+
+        if otv1_ == '11' and otv2_ == '35':
+            y_or_n_num1["fg"] = "Green"
+            y_or_n_num1["text"] = "Всё верно! Молодец!"
+            root.update()
+            time.sleep(3)
+            ok = ok + 2
+
+            if ok >= 2:
+                y_or_n_num1['fg'] = 'Green'
+                y_or_n_num1['text'] = "Я тебя поздравляю, ты отлично выполнил задачку\n- на все 5 баллов!"
+                root.update()
+                time.sleep(3)
+                root.destroy()
+                playt()
+            elif ok >= 0 and ok < 2:
+                y_or_n_num1['fg'] = 'Green'
+                y_or_n_num1['text'] = "Молодец, ты хорошо выполнил задание - 4."
+                root.update()
+                time.sleep(3)
+                root.destroy()
+                playt()
+            elif ok < 0 and ok > -5:
+                y_or_n_num1['fg'] = 'DarkOrange2'
+                y_or_n_num1['text'] = "Ты выполнил задание с потерями - 3."
+            elif ok <= -4:
+                y_or_n_num1['fg'] = 'Red2'
+                y_or_n_num1['text'] = "Ты провалил задание - 2!"
+            else:
+                print("system: error grade")
+
+        else:
+            y_or_n_num1["fg"] = "Red2"
+            y_or_n_num1["text"] = "Неверно, попробуй снова!"
+            ok = ok - 2
+            print("system ok==", ok)
+    z1 = Label(root, text="Сколько треугольников на фигуре №1? ", fg="Black", bg="white",
+               font="Bahnschrift 20")
+    z2 = Label(root, text="Сколько треугольников на фигуре №2? ", fg="Black", bg="white",
+               font="Bahnschrift 20")
+    otv1 = Entry(root, fg="Black", bg="white", font="Bahnschrift 20")
+    otv2 = Entry(root, fg="Black", bg="white", font="Bahnschrift 20")
+    provbutt = Button(root, text="Проверить ответы", fg="Black", bg="white", border=1,
+                      font="Bahnschrift 20", cursor="hand2", command=prover_num1)
+    y_or_n_num1 = Label(root, text="  ", fg="Black", bg="white",
+          font="Bahnschrift 20")
+
+    z1.place(x=100, y=350)
+    z2.place(x=100, y=450)
+    otv1.place(x=630, y=350)
+    otv2.place(x=630, y=450)
+    provbutt.place(x=100, y=550)
+    y_or_n_num1.place(x=400, y=550)
+
+
+def number2():
+    def num2_3():
+
+        global ok
+
+        def on_closing_number23():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root3.destroy()
+
+        root3 = Tk()
+        root3.geometry("1280x800")
+        root3.title("Юрок №2")
+        root3.iconbitmap("icon.ico")
+        root3.protocol("WM_DELETE_WINDOW", on_closing_number23)
+        root3["bg"] = "white"
+
+        # w1 = Label(root3, text="Все шли в Москву*", fg="Black", bg="white", font="Bahnschrift 20")
+
+        root3.image = PhotoImage(file="bg/BG2v3.png")
+        back = Label(root3, image=root3.image, border=0)
+        back.place(x=150, y=20)
+
+        def prover_num2():
+
+            global ok
+
+            otv2_ = otv2.get()
+            print("System (норма 7 (True)):", otv2_)
+
+            if otv2_ == '7':
+                y_or_n_num1["fg"] = "Green"
+                y_or_n_num1["text"] = "Всё верно! Молодец!"
+                ok = ok + 1
+                root3.update()
+
+                if ok == 3 or ok > 3:
+                    y_or_n_num1["fg"] = 'light green'
+                    y_or_n_num1["text"] = "Я тебя поздравляю, ты отлично выполнил задачку\n- на все 5 баллов!"
+                    root3.update()
+                    time.sleep(3)
+                    root3.destroy()
+                    playt()
+                elif ok < 3 and ok > 0:
+                    y_or_n_num1["fg"] = 'Green'
+                    y_or_n_num1["text"] = "Молодец, ты хорошо выполнил задание - 4."
+                    root3.update()
+                    time.sleep(3)
+                    root3.destroy()
+                    playt()
+                elif ok == 0:
+                    y_or_n_num1["fg"] = 'orange'
+                    y_or_n_num1["text"] = "Ты выполнил задание с потерями - 3."
+                elif ok == -1 or -2 or -3 or -4 or -5 or -6 or -7 or -8 or -9 or -10 or ok < -10:
+                    y_or_n_num1["fg"] = 'red'
+                    y_or_n_num1["text"] = "Ты провалил задание - 2!"
+                else:
+                    print("System: error grade")
+
+            else:
+                y_or_n_num1["fg"] = "Red2"
+                y_or_n_num1["text"] = "Неверно, попробуй снова!"
+                ok = ok - 1
+
+                print("system ok ==", ok)
+
+        z2 = Label(root3, text="Ответ:", fg="Black", bg="white",
+                   font="Bahnschrift 20")
+        otv2 = Entry(root3, fg="Black", bg="white", font="Bahnschrift 20")
+        provbutt = Button(root3, text="Проверить ответы", fg="Black", bg="white", border=1,
+                          font="Bahnschrift 20", cursor="hand2", command=prover_num2)
+        y_or_n_num1 = Label(root3, text="  ", fg="Black", bg="white", font="Bahnschrift 20")
+
+        z2.place(x=500, y=550)
+        otv2.place(x=630, y=550)
+        provbutt.place(x=100, y=550)
+        y_or_n_num1.place(x=400, y=610)
+
+    def num2_2():
+
+        global ok
+
+        def on_closing_number22():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root2.destroy()
+
+        root2 = Tk()
+        root2.geometry("1280x800")
+        root2.title("Юрок №2")
+        root2.iconbitmap("icon.ico")
+        root2.protocol("WM_DELETE_WINDOW", on_closing_number22)
+        root2["bg"] = "white"
+
+        root2.image = PhotoImage(file="bg/BG4.png")
+        back = Label(root2, image=root2.image, border=0)
+        back.place(x=150, y=20)
+
+        def prover_num2():
+
+            global ok
+
+            otv2_ = otv2.get()
+            print("System (норма 4 (True)):", otv2_)
+
+            if otv2_ == '4':
+                y_or_n_num1["fg"] = "Green"
+                y_or_n_num1["text"] = "Всё верно! Молодец!"
+                ok = ok + 1
+                root2.update()
+                time.sleep(3)
+                root2.destroy()
+                num2_3()
+
+            else:
+                y_or_n_num1["fg"] = "Red2"
+                y_or_n_num1["text"] = "Неверно, попробуй снова!"
+                ok = ok - 1
+
+        z2 = Label(root2, text="Ответ:", fg="Black", bg="white",
+                   font="Bahnschrift 20")
+        otv2 = Entry(root2, fg="Black", bg="white", font="Bahnschrift 20")
+        provbutt = Button(root2, text="Проверить ответы", fg="Black", bg="white", border=1,
+                          font="Bahnschrift 20", cursor="hand2", command=prover_num2)
+        y_or_n_num1 = Label(root2, text="  ", fg="Black", bg="white", font="Bahnschrift 20")
+
+        z2.place(x=500, y=500)
+        otv2.place(x=630, y=500)
+        provbutt.place(x=100, y=550)
+        y_or_n_num1.place(x=400, y=550)
+
+    global ok
+
+    lev2.start()
+    global_root.destroy()
+
+    def on_closing_number2():
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            root.destroy()
+
+    root = Tk()
+    root.geometry("1280x800")
+    root.title("Юрок №2")
+    root.iconbitmap("icon.ico")
+    root.protocol("WM_DELETE_WINDOW", on_closing_number2)
+    root["bg"] = "white"
+
+    root.image = PhotoImage(file="bg/BG3V2.png")
+    back = Label(root, image=root.image, border=0)
+    back.place(x=150, y=20)
+
+    def prover_num2():
+
+        global ok
+
+        otv2_ = otv2.get()
+        print("System (норма 0 (True)):", otv2_)
+
+        if otv2_ == '0':
+            y_or_n_num1["fg"] = "Green"
+            y_or_n_num1["text"] = "Всё верно! Молодец!"
+            ok = ok + 1
+            root.update()
+            time.sleep(3)
+            root.destroy()
+            num2_2()
+        else:
+            y_or_n_num1["fg"] = "Red2"
+            y_or_n_num1["text"] = "Неверно, попробуй снова!"
+            ok = ok - 1
+
+    z2 = Label(root, text="Ответ:", fg="Black", bg="white",
+               font="Bahnschrift 20")
+    otv2 = Entry(root, fg="Black", bg="white", font="Bahnschrift 20")
+    provbutt = Button(root, text="Проверить ответы", fg="Black", bg="white", border=1,
+                      font="Bahnschrift 20", cursor="hand2", command=prover_num2)
+    y_or_n_num1 = Label(root, text="  ", fg="Black", bg="white", font="Bahnschrift 20")
+
+    z2.place(x=500, y=450)
+    otv2.place(x=630, y=450)
+    provbutt.place(x=100, y=550)
+    y_or_n_num1.place(x=400, y=550)
+
+
+def number3():
+    global global_roots
+
+    global_root_stop()
+
+    if global_root == True:
+        global_root.destroy()
+
+    elif global_root == False:
+        pass
+
+    lev4.start()
+
+    def num3_3():
+        root4.destroy()
+
+        def reset_num3():
+            root7.destroy()
+            number3()
+
+        def on_closing_num3_3():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root7.destroy()
+
+        root7 = Tk()
+        root7.geometry("350x600")
+        root7.title("Юрок №3")
+        root7.iconbitmap("icon.ico")
+        root7.protocol("WM_DELETE_WINDOW", on_closing_num3_3)
+        root7["bg"] = "white"
+
+        root7.image = PhotoImage(file="bg/BG6_win2.png")
+        back = Label(root7, image=root7.image, border=0)
+        back.place(x=20, y=20)
+
+        go = Button(root7, text='Открыть окно...', fg="Blue", bg="White",
+                    border=0, font="Bahnschrift 20", cursor="hand2", command=reset_num3)
+        go.place(x=50, y=545)
+
+
+    def num3_2():
+        root4.destroy()
+
+        def on_closing_num3_2():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root5.destroy()
+
+        root5 = Tk()
+        root5.geometry("1280x800")
+        root5.title("Юрок №3")
+        root5.iconbitmap("icon.ico")
+        root5.protocol("WM_DELETE_WINDOW", on_closing_num3_2)
+        root5["bg"] = "white"
+
+        root5.image = PhotoImage(file="bg/BG7.png")
+        back2 = Label(root5, image=root5.image, border=0)
+        back2.place(x=20, y=20)
+
+        text2 = Label(root5, text="Открой IDLE Python и на основе прошлого кода сделай квадрат в 2 раза больше!",
+                      fg="Black", bg="White", font="Bahnschrift 20")
+
+        text2.place(x=30, y=570)
+
+
+    def on_closing_num3():
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            root4.destroy()
+
+    root4 = Tk()
+    root4.geometry("1280x800")
+    root4.title("Юрок №3")
+    root4.iconbitmap("icon.ico")
+    root4.protocol("WM_DELETE_WINDOW", on_closing_num3)
+    root4["bg"] = "white"
+
+    root4.image = PhotoImage(file="bg/BG6.png")
+    back = Label(root4, image=root4.image, border=0)
+    back.place(x=20, y=20)
+
+    go = Button(root4, text='Далее...', fg="Blue", bg="White",
+                border=0, font="Bahnschrift 20", cursor="hand2", command=num3_2)
+    go2 = Button(root4, text='Открыть код...', fg="Blue", bg="White",
+                 border=0, font="Bahnschrift 20", cursor="hand2", command=num3_3)
+    text1 = Label(root4, text="Открой IDLE Python, введи код и посмотри, что вышло!", fg="Black", bg="White",
+                  font="Bahnschrift 20")
+
+    go.place(x=850, y=545)
+    go2.place(x=850, y=595)
+    text1.place(x=30, y=550)
+
+
+def number4():
+    global global_roots
+
+    global_root_stop()
+
+    if global_root == True:
+        global_root.destroy()
+
+    elif global_root == False:
+        pass
+
+    lev4.start()
+
+    def on_closing_num4():
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            root6.destroy()
+
+    def num4_2():
+        root6.destroy()
+
+        def reset_num4():
+            root7.destroy()
+            number4()
+
+        def on_closing_num4_2():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root7.destroy()
+
+        root7 = Tk()
+        root7.geometry("700x600")
+        root7.title("Юрок №4")
+        root7.iconbitmap("icon.ico")
+        root7.protocol("WM_DELETE_WINDOW", on_closing_num4_2)
+        root7["bg"] = "white"
+
+        root7.image = PhotoImage(file="bg/BG9.png")
+        back = Label(root7, image=root7.image, border=0)
+        back.place(x=20, y=20)
+
+        go = Button(root7, text='Открыть окно...', fg="Blue", bg="White",
+                    border=0, font="Bahnschrift 20", cursor="hand2", command=reset_num4)
+
+        go.place(x=50, y=545)
+
+
+    root6 = Tk()
+    root6.geometry("1280x800")
+    root6.title("Юрок №4")
+    root6.iconbitmap("icon.ico")
+    root6.protocol("WM_DELETE_WINDOW", on_closing_num4)
+    root6["bg"] = "white"
+
+    root6.image = PhotoImage(file="bg/BG8.png")
+    back = Label(root6, image=root6.image, border=0)
+    back.place(x=20, y=20)
+
+    go = Button(root6, text='Открыть код...', fg="Blue", bg="White",
+                border=0, font="Bahnschrift 20", cursor="hand2", command=num4_2)
+    text1 = Label(root6, text="Открой IDLE Python, сделайте синий прямоугольник 70 на 50", fg="Black", bg="White",
+                  font="Bahnschrift 20")
+
+    go.place(x=850, y=545)
+    text1.place(x=30, y=550)
+
+
+def number5():
+
+    global global_roots
+    global ok
+
+    global_root_stop()
+
+    if global_root == True:
+        global_root.destroy()
+
+    elif global_root == False:
+        pass
+
+    lev5.start()
+
+    def on_closing_num5():
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            root6.destroy()
+
+    def num5_2():
+        global ok
+
+        def yes():
+            global ok
+            ok = ok + 1
+            otv["fg"] = "green"
+            otv["text"] = "Всё верно! Молодец!"
+            go["fg"] = "red"
+            go2["fg"] = "green"
+            go3["fg"] = "red"
+            root7.update()
+            time.sleep(3)
+            num5_3()
+
+        def no():
+            global ok
+            ok = ok - 1
+            otv['fg'] = "red"
+            otv["text"] = "Неверно, попробуй снова!"
+
+        root6.destroy()
+
+        def num5_3():
+
+            def num5_4():
+                root8.destroy()
+
+                global ok
+
+                def yes():
+                    global ok
+                    ok = ok + 1
+                    otv["fg"] = "green"
+                    otv["text"] = "Всё верно! Молодец!"
+                    go["fg"] = "red"
+                    go2["fg"] = "red"
+                    go3["fg"] = "green"
+                    root9.update()
+                    time.sleep(3)
+                    if ok == 3 or ok > 3:
+                        otv["fg"] = 'light green'
+                        otv["text"] = "Я тебя поздравляю, ты отлично выполнил задачку\n- на все 5 баллов!"
+                        root9.image = PhotoImage(file="bg/BG14.png")
+                        back = Label(root9, image=root9.image, border=0)
+                        back.place(x=20, y=20)
+                        root9.update()
+                        time.sleep(3)
+                        root9.destroy()
+                        playt()
+                    elif ok < 3 and ok > 0:
+                        otv["fg"] = 'Green'
+                        otv["text"] = "Молодец, ты хорошо выполнил задание - 4."
+                        root9.image = PhotoImage(file="bg/BG14.png")
+                        back = Label(root9, image=root9.image, border=0)
+                        back.place(x=20, y=20)
+                        root9.update()
+                        time.sleep(3)
+                        root9.destroy()
+                        playt()
+                    elif ok == 0:
+                        otv["fg"] = 'orange'
+                        otv["text"] = "Ты выполнил задание с потерями - 3."
+                        root9.image = PhotoImage(file="bg/BG15.png")
+                        back = Label(root9, image=root9.image, border=0)
+                        back.place(x=20, y=20)
+                        root9.update()
+                    elif ok == -1 or -2 or -3 or -4 or -5 or -6 or -7 or -8 or -9 or -10 or ok < -10:
+                        otv["fg"] = 'red'
+                        otv["text"] = "Ты провалил задание - 2!"
+                        root9.image = PhotoImage(file="bg/BG15.png")
+                        back = Label(root9, image=root9.image, border=0)
+                        back.place(x=20, y=20)
+                        root9.update()
+                    else:
+                        print("System: error grade")
+
+                def no():
+                    global ok
+                    ok = ok - 1
+                    otv['fg'] = "red"
+                    otv["text"] = "Неверно, попробуй снова!"
+
+                def on_closing_num5_4():
+                    if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                        root9.destroy()
+
+                root9 = Tk()
+                root9.geometry("1280x800")
+                root9.title("Юрок №5")
+                root9.iconbitmap("icon.ico")
+                root9.protocol("WM_DELETE_WINDOW", on_closing_num5_4)
+                root9["bg"] = "white"
+
+                root9.image = PhotoImage(file="bg/BG13.png")
+                back = Label(root9, image=root9.image, border=0)
+                back.place(x=20, y=20)
+
+                go = Button(root9, text='Текст для его вывода с помощью turtle', fg="Black", bg="White",
+                            border=0, font="Bahnschrift 20", cursor="hand2", command=no)
+                go2 = Button(root9, text='Кол-во пиксилей для перемещения черепашки вправо', fg="Black", bg="White",
+                             border=0, font="Bahnschrift 20", cursor="hand2", command=no)
+                go3 = Button(root9, text='Угол поворота черепашки', fg="Black", bg="White",
+                             border=0, font="Bahnschrift 20", cursor="hand2", command=yes)
+
+                otv = Label(root9, text=" ", fg="Black", bg="white", font="Bahnschrift 20")
+
+
+                go.place(x=50, y=520)
+                go2.place(x=50, y=570)
+                go3.place(x=50, y=620)
+                otv.place(x=700, y=520)
+
+            root7.destroy()
+
+            global ok
+
+            def yes():
+                global ok
+                ok = ok + 1
+                otv["fg"] = "green"
+                otv["text"] = "Всё верно! Молодец!"
+                go["fg"] = "red"
+                go2["fg"] = "red"
+                go3["fg"] = "green"
+                root8.update()
+                time.sleep(3)
+                num5_4()
+
+            def no():
+                global ok
+                ok = ok - 1
+                otv['fg'] = "red"
+                otv["text"] = "Неверно, попробуй снова!"
+
+            def on_closing_num5_3():
+                if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                    root8.destroy()
+
+            root8 = Tk()
+            root8.geometry("1280x800")
+            root8.title("Юрок №5")
+            root8.iconbitmap("icon.ico")
+            root8.protocol("WM_DELETE_WINDOW", on_closing_num5_3)
+            root8["bg"] = "white"
+
+            root8.image = PhotoImage(file="bg/BG12.png")
+            back = Label(root8, image=root8.image, border=0)
+            back.place(x=20, y=20)
+
+            go = Button(root8, text='Для вывода картинки с помощью turtle', fg="Black", bg="White",
+                        border=0, font="Bahnschrift 20", cursor="hand2", command=no)
+            go2 = Button(root8, text='Для перемещения черепашки вправо', fg="Black", bg="White",
+                         border=0, font="Bahnschrift 20", cursor="hand2", command=no)
+            go3 = Button(root8, text='Для поворота черепашки', fg="Black", bg="White",
+                         border=0, font="Bahnschrift 20", cursor="hand2", command=yes)
+
+            otv = Label(root8, text=" ", fg="Black", bg="white", font="Bahnschrift 20")
+
+            go.place(x=50, y=500)
+            go2.place(x=50, y=550)
+            go3.place(x=50, y=600)
+            otv.place(x=700, y=500)
+
+        def on_closing_num5_2():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root7.destroy()
+
+        root7 = Tk()
+        root7.geometry("1280x800")
+        root7.title("Юрок №5")
+        root7.iconbitmap("icon.ico")
+        root7.protocol("WM_DELETE_WINDOW", on_closing_num5_2)
+        root7["bg"] = "white"
+
+        root7.image = PhotoImage(file="bg/BG11.png")
+        back = Label(root7, image=root7.image, border=0)
+        back.place(x=20, y=20)
+
+        go = Button(root7, text='Для вывода текста с помощью turtle', fg="Black", bg="White",
+                    border=0, font="Bahnschrift 20", cursor="hand2", command=no)
+        go2 = Button(root7, text='Для перемещения черепашки вперёд', fg="Black", bg="White",
+                     border=0, font="Bahnschrift 20", cursor="hand2", command=yes)
+        go3 = Button(root7, text='Для создания 2-й черепашки', fg="Black", bg="White",
+                     border=0, font="Bahnschrift 20", cursor="hand2", command=no)
+
+        otv = Label(root7, text=" ", fg="Black", bg="white", font="Bahnschrift 20")
+
+        go.place(x=50, y=500)
+        go2.place(x=50, y=550)
+        go3.place(x=50, y=600)
+        otv.place(x=700, y=500)
+
+    root6 = Tk()
+    root6.geometry("1280x800")
+    root6.title("Юрок №5")
+    root6.iconbitmap("icon.ico")
+    root6.protocol("WM_DELETE_WINDOW", on_closing_num5)
+    root6["bg"] = "white"
+
+    root6.image = PhotoImage(file="bg/BG10.png")
+    back = Label(root6, image=root6.image, border=0)
+    back.place(x=20, y=20)
+
+    go = Button(root6, text='Начать тест...', fg="Blue", bg="White",
+                border=0, font="Bahnschrift 20", cursor="hand2", command=num5_2)
+    text1 = Label(root6, text="Реши тест по теме «turtle»", fg="Black", bg="White",
+                  font="Bahnschrift 20")
+
+    go.place(x=850, y=545)
+    text1.place(x=30, y=550)
+
+
+def number6():
+    global global_roots
+
+    global_root_stop()
+
+    if global_root == True:
+        global_root.destroy()
+    elif global_root == False:
+        pass
+
+    lev6.start()
+
+    # noinspection PyArgumentList
+    def num6_2():
+
+        root6.destroy()
+
+        def on_closing_num6_2():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root7.destroy()
+
+        root7 = Tk()
+        root7.geometry("1280x800")
+        root7.title("Юрок №6")
+        root7.iconbitmap("icon.ico")
+        root7.protocol("WM_DELETE_WINDOW", on_closing_num6_2)
+        root7["bg"] = "white"
+
+        x = [8, 16, 32, 64, 128, 256, 512, 1024, 2048]
+        x1 = random.choice(x)
+        x2 = x1 // 8
+        xl = f"{x1} бит = ? байт "
+
+        text1 = Label(root7, text="Сколько это в байтах?", fg="Black", bg="white", font="Bahnschrift 20")
+        xl_ = Label(root7, text=xl, fg="Black", bg="white", border=0, font="Bahnschrift 20")
+        otv = Entry(root7, fg="Black", bg="white", font="Bahnschrift 20")
+
+        otv_ = otv.get()
+
+        text1.pack(side=TOP)
+        xl_.place(x=100, y=200)
+        otv.place(x=170, y=200)
+
+
+    def on_closing_num6():
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            root6.destroy()
+
+    root6 = Tk()
+    root6.geometry("1280x800")
+    root6.title("Юрок №6")
+    root6.iconbitmap("icon.ico")
+    root6.protocol("WM_DELETE_WINDOW", on_closing_num6)
+    root6["bg"] = "white"
+
+    root6.image = PhotoImage(file="bg/BG16.png")
+    back = Label(root6, image=root6.image, border=0)
+    back.place(x=20, y=20)
+
+    go = Button(root6, text='Начать...', fg="Blue", bg="White",
+                border=0, font="Bahnschrift 24", cursor="hand2", command=num6_2)
+
+    go.place(x=850, y=545)
+
+
+# кнопки в начальном окне/buttoms to global_root
+n1 = Button(global_root, text="Задачка №1 - Интересные треугольники", fg="Black", bg="white",
+            border=0, font="Bahnschrift 20", cursor="hand2", command=number1)
+n2 = Button(global_root, text="Задачка №2 - Помоги Генералу Гавсу отгадать загадки", fg="Black", bg="white",
+            border=0, font="Bahnschrift 20", cursor="hand2", command=number2)
+n3 = Button(global_root, text="Задачка №3 - Turtle", fg="Black", bg="white",
+            border=0, font="Bahnschrift 20", cursor="hand2", command=number3)
+n4 = Button(global_root, text="Задачка №4 - Снова треугольники", fg="Black", bg="white",
+            border=0, font="Bahnschrift 20", cursor="hand2", command=number4)
+n5 = Button(global_root, text="Задачка №5 - Тест на знание turtle", fg="Black", bg="white",
+            border=0, font="Bahnschrift 20", cursor="hand2", command=number5)
+n6 = Button(global_root, text="Задачка №6 - Биты, байты и т.п.", fg="Black", bg="white",
+            border=0, font="Bahnschrift 20", cursor="hand2", command=number6)
+
+url = 'bg/sch102_logo.png'
+img = PhotoImage(file=url)
+# размещение картинки: compound= bottom, center, left, none, right, or top
+sch102 = Button(global_root, text='Открыть сайт\nшколы', image=img, compound='left', fg="Black", bg="white",
+                border=0, font="Bahnschrift 20", cursor="hand2", command=site_school102)
+
+
+yir.place(x=20, y=20)
+yir2.place(x=160, y=45)
+n1.place(x=20, y=100)
+n2.place(x=20, y=160)
+n3.place(x=20, y=220)
+n4.place(x=20, y=280)
+n5.place(x=20, y=340)
+n6.place(x=20, y=400)
+sch102.place(x=900, y=70)
+global_root.mainloop()
