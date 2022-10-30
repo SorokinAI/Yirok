@@ -18,7 +18,7 @@ def init():
     global_roots = True
 
 # Documentation
-print("Версия кода: 7.6")
+print("Версия кода: 9.1")
 print("                ")
 
 
