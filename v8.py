@@ -29,7 +29,6 @@ class Documentation_Level:  # дополнительная документац�
         self.difficulty = difficulty
         print("Задачка создана")
         print("Созданная задачка имеет номер:", self.number, "и сложность", self.difficulty)
-        print("\n")
 
     def start(self):
         print("Задачка под номером:", self.number, "и сложностью", self.difficulty, "запущена")
@@ -44,8 +43,7 @@ lev4 = Documentation_Level(4, 'Easy')
 lev5 = Documentation_Level(5, 'Easy')
 lev6 = Documentation_Level(6, 'Hard')
 game_paint = Documentation_Level("game 1", "Easy")
-print("                                    ")
-print("                                    ")
+
 
 # game
 
@@ -55,186 +53,186 @@ sizeA = 5
 
 
 def playt():  # код игры/game code
-    time.sleep(3)
-    game_paint.start()
+    if messagebox.askokcancel("Юрок Paint", "Хотите запустить мини-игру?"):
 
-    wind = turtle.Screen()
-    wind.title("Электронная тетрадь «Юрок»")
-    wind.setup(1280, 780)
+        game_paint.start()
 
-    turt1 = turtle.Turtle()
+        wind = turtle.Screen()
+        wind.title("Электронная тетрадь «Юрок»")
+        wind.setup(1280, 780)
 
-    # цвета/color's
+        turt1 = turtle.Turtle()
 
-    def color1():
-        color = 'black'
-        turt1.color(color)
+        # цвета/color's
 
-    def color2():
-        color = 'red2'
-        turt1.color(color)
+        def color1():
+            color = 'black'
+            turt1.color(color)
 
-    def color3():
-        color = 'gold'
-        turt1.color(color)
+        def color2():
+            color = 'red2'
+            turt1.color(color)
 
-    def color4():
-        color = 'violet'
-        turt1.color(color)
+        def color3():
+            color = 'gold'
+            turt1.color(color)
 
-    def color5():
-        color = 'lime green'
-        turt1.color(color)
+        def color4():
+            color = 'violet'
+            turt1.color(color)
 
-    def color6():
-        color = 'dark green'
-        turt1.color(color)
+        def color5():
+            color = 'lime green'
+            turt1.color(color)
 
-    def color7():
-        color = 'cyan'
-        turt1.color(color)
+        def color6():
+            color = 'dark green'
+            turt1.color(color)
 
-    def color8():
-        color = 'RoyalBlue3'
-        turt1.color(color)
+        def color7():
+            color = 'cyan'
+            turt1.color(color)
 
-    # размер ручки turtle/size pen turtle
+        def color8():
+            color = 'RoyalBlue3'
+            turt1.color(color)
 
-    def siz1():
-        turt1.pensize(1)
+        # размер ручки turtle/size pen turtle
 
-    def siz2():
-        turt1.pensize(2)
+        def siz1():
+            turt1.pensize(1)
 
-    def siz3():
-        turt1.pensize(3)
+        def siz2():
+            turt1.pensize(2)
 
-    def siz4():
-        turt1.pensize(4)
+        def siz3():
+            turt1.pensize(3)
 
-    def siz5():
-        turt1.pensize(5)
+        def siz4():
+            turt1.pensize(4)
 
-    def siz6():
-        turt1.pensize(6)
+        def siz5():
+            turt1.pensize(5)
 
-    def siz7():
-        turt1.pensize(7)
+        def siz6():
+            turt1.pensize(6)
 
-    def siz8():
-        turt1.pensize(8)
+        def siz7():
+            turt1.pensize(7)
 
-    def siz9():
-        turt1.pensize(9)
+        def siz8():
+            turt1.pensize(8)
 
-    def siz10():
-        turt1.pensize(10)
+        def siz9():
+            turt1.pensize(9)
 
-    # джостик/gamepad
+        def siz10():
+            turt1.pensize(10)
 
-    def right():
-        turt1.right(10)
+        # джостик/gamepad
 
-    def left():
-        turt1.left(10)
+        def right():
+            turt1.right(10)
 
-    def up():
-        turt1.forward(10)
+        def left():
+            turt1.left(10)
 
-    def down():
-        turt1.back(10)
+        def up():
+            turt1.forward(10)
 
-    def cleargame():
+        def down():
+            turt1.back(10)
+
+        def cleargame():
+            wind.reset()
+
+
+    # окно настройки черепашки/window setting's turtle
+        gui_game = Tk()
+        gui_game.geometry("500x550")
+        gui_game.title("Параметры")
+        gui_game["bg"] = "white"
+        gui_game.resizable(width=False, height=False)
+        col0 = Label(gui_game, bg='white', text="Выбери цвет кисти:", font=21)
+        col1 = Button(gui_game, text="Чёрный", fg='snow', bg='black', border=0, width=11, cursor="hand2", command=color1)
+        col2 = Button(gui_game, text="Красный", fg='black', bg='red2', border=0, width=11, cursor="hand2", command=color2)
+        col3 = Button(gui_game, text="Жёлтый", fg='black', bg='gold', border=0, width=11, cursor="hand2", command=color3)
+        col4 = Button(gui_game, text="Пурпурный", fg='black', bg='violet', border=0, width=11, cursor="hand2", command=color4)
+        col5 = Button(gui_game, text="Светло-зел", fg='black', bg='lime green', border=0, width=11, cursor="hand2", command=color5)
+        col6 = Button(gui_game, text="Тёмно-зел.", fg='black', bg='dark green', border=0, width=11, cursor="hand2", command=color6)
+        col7 = Button(gui_game, text="Голубой", fg='black', bg='cyan', border=0, width=11, cursor="hand2", command=color7)
+        col8 = Button(gui_game, text="Синий", fg='black', bg='RoyalBlue3', width=11, border=0, cursor="hand2", command=color8)
+        clear = Button(gui_game, bg='white', text="Очисчить экран🧹", border=0, cursor="hand2", command=cleargame)
+        s0 = Label(gui_game, bg='white', text="Выбери размер кисти:", font=21)
+        s1 = Button(gui_game, bg='silver', text="1(маленький)", border=0, width=11, cursor="hand2", command=siz1)
+        s2 = Button(gui_game, bg='silver', text="2", border=0, width=11, cursor="hand2", command=siz2)
+        s3 = Button(gui_game, bg='silver', text="3", border=0, width=11, cursor="hand2", command=siz3)
+        s4 = Button(gui_game, bg='silver', text="4", border=0, width=11, cursor="hand2", command=siz4)
+        s5 = Button(gui_game, bg='silver', text="5", border=0, width=11, cursor="hand2", command=siz5)
+        s6 = Button(gui_game, bg='silver', text="6", border=0, width=11, cursor="hand2", command=siz6)
+        s7 = Button(gui_game, bg='silver', text="7", border=0, width=11, cursor="hand2", command=siz7)
+        s8 = Button(gui_game, bg='silver', text="8", border=0, width=11, cursor="hand2", command=siz8)
+        s9 = Button(gui_game, bg='silver', text="9", border=0, width=11, cursor="hand2", command=siz9)
+        s10 = Button(gui_game, bg='silver', text="10(большой)", width=11, border=0, cursor="hand2", command=siz10)
+
+        clear.grid(column=4, row=2)
+        col0.grid(column=2, row=1)
+        col1.grid(column=2, row=2)
+        col2.grid(column=2, row=3)
+        col3.grid(column=2, row=4)
+        col4.grid(column=2, row=5)
+        col5.grid(column=3, row=2)
+        col6.grid(column=3, row=3)
+        col7.grid(column=3, row=4)
+        col8.grid(column=3, row=5)
+        s0.grid(column=2, row=6)
+        s1.grid(column=2, row=7)
+        s2.grid(column=2, row=8)
+        s3.grid(column=2, row=9)
+        s4.grid(column=2, row=10)
+        s5.grid(column=2, row=11)
+        s6.grid(column=3, row=7)
+        s7.grid(column=3, row=8)
+        s8.grid(column=3, row=9)
+        s9.grid(column=3, row=10)
+        s10.grid(column=3, row=11)
+
+        time.sleep(3)
+
+        # окно рисования/window for paint
         wind.reset()
+        wind.bgpic("")
+        wind.title("Paint Юрок")
+        wind.setup(1280, 700)
+        turt1.penup()
+        turt1.speed(1000)
+        turt1.hideturtle()
+        turt1.goto(-600, 300)
+        turt1.home()
+        turt1.pensize(5)
+        turt1.pendown()
+        turt1.pensize(sizeA)
+        turt1.showturtle()
 
+    # джостики2/gamepad2
 
-# окно настройки черепашки/window setting's turtle
-    gui_game = Tk()
-    gui_game.geometry("500x550")
-    gui_game.title("Параметры")
-    gui_game["bg"] = "white"
-    gui_game.resizable(width=False, height=False)
-    col0 = Label(gui_game, bg='white', text="Выбери цвет кисти:", font=21)
-    col1 = Button(gui_game, text="Чёрный", fg='snow', bg='black', border=0, width=11, cursor="hand2", command=color1)
-    col2 = Button(gui_game, text="Красный", fg='black', bg='red2', border=0, width=11, cursor="hand2", command=color2)
-    col3 = Button(gui_game, text="Жёлтый", fg='black', bg='gold', border=0, width=11, cursor="hand2", command=color3)
-    col4 = Button(gui_game, text="Пурпурный", fg='black', bg='violet', border=0, width=11, cursor="hand2", command=color4)
-    col5 = Button(gui_game, text="Светло-зел", fg='black', bg='lime green', border=0, width=11, cursor="hand2", command=color5)
-    col6 = Button(gui_game, text="Тёмно-зел.", fg='black', bg='dark green', border=0, width=11, cursor="hand2", command=color6)
-    col7 = Button(gui_game, text="Голубой", fg='black', bg='cyan', border=0, width=11, cursor="hand2", command=color7)
-    col8 = Button(gui_game, text="Синий", fg='black', bg='RoyalBlue3', width=11, border=0, cursor="hand2", command=color8)
-    clear = Button(gui_game, bg='white', text="Очисчить экран🧹", border=0, cursor="hand2", command=cleargame)
-    s0 = Label(gui_game, bg='white', text="Выбери размер кисти:", font=21)
-    s1 = Button(gui_game, bg='silver', text="1(маленький)", border=0, width=11, cursor="hand2", command=siz1)
-    s2 = Button(gui_game, bg='silver', text="2", border=0, width=11, cursor="hand2", command=siz2)
-    s3 = Button(gui_game, bg='silver', text="3", border=0, width=11, cursor="hand2", command=siz3)
-    s4 = Button(gui_game, bg='silver', text="4", border=0, width=11, cursor="hand2", command=siz4)
-    s5 = Button(gui_game, bg='silver', text="5", border=0, width=11, cursor="hand2", command=siz5)
-    s6 = Button(gui_game, bg='silver', text="6", border=0, width=11, cursor="hand2", command=siz6)
-    s7 = Button(gui_game, bg='silver', text="7", border=0, width=11, cursor="hand2", command=siz7)
-    s8 = Button(gui_game, bg='silver', text="8", border=0, width=11, cursor="hand2", command=siz8)
-    s9 = Button(gui_game, bg='silver', text="9", border=0, width=11, cursor="hand2", command=siz9)
-    s10 = Button(gui_game, bg='silver', text="10(большой)", width=11, border=0, cursor="hand2", command=siz10)
+    # WASD
+        turtle.onkeypress(right, 'd')
+        turtle.onkeypress(left, 'a')
+        turtle.onkeypress(up, 'w')
+        turtle.onkeypress(down, 's')
 
-    clear.grid(column=4, row=2)
-    col0.grid(column=2, row=1)
-    col1.grid(column=2, row=2)
-    col2.grid(column=2, row=3)
-    col3.grid(column=2, row=4)
-    col4.grid(column=2, row=5)
-    col5.grid(column=3, row=2)
-    col6.grid(column=3, row=3)
-    col7.grid(column=3, row=4)
-    col8.grid(column=3, row=5)
-    s0.grid(column=2, row=6)
-    s1.grid(column=2, row=7)
-    s2.grid(column=2, row=8)
-    s3.grid(column=2, row=9)
-    s4.grid(column=2, row=10)
-    s5.grid(column=2, row=11)
-    s6.grid(column=3, row=7)
-    s7.grid(column=3, row=8)
-    s8.grid(column=3, row=9)
-    s9.grid(column=3, row=10)
-    s10.grid(column=3, row=11)
+    # стрелочки/arrows
+        turtle.onkeypress(right, 'Right')
+        turtle.onkeypress(left, 'Left')
+        turtle.onkeypress(up, 'Up')
+        turtle.onkeypress(down, 'Down')
 
-    time.sleep(3)
+        turtle.listen()
 
-    # окно рисования/window for paint
-    wind.reset()
-    wind.bgpic("")
-    wind.title("Paint Юрок")
-    wind.setup(1280, 700)
-    turt1.penup()
-    turt1.speed(1000)
-    turt1.hideturtle()
-    turt1.goto(-600, 300)
-    turt1.home()
-    turt1.pensize(5)
-    turt1.pendown()
-    turt1.pensize(sizeA)
-    turt1.showturtle()
-
-# джостики2/gamepad2
-
-# WASD
-    turtle.onkeypress(right, 'd')
-    turtle.onkeypress(left, 'a')
-    turtle.onkeypress(up, 'w')
-    turtle.onkeypress(down, 's')
-
-# стрелочки/arrows
-    turtle.onkeypress(right, 'Right')
-    turtle.onkeypress(left, 'Left')
-    turtle.onkeypress(up, 'Up')
-    turtle.onkeypress(down, 'Down')
-
-
-
-
-    turtle.listen()
-
-    gui_game.mainloop()
+        gui_game.mainloop()
+    else:
+        pass
 
 
 def on_closing():  # выход/exit
@@ -247,7 +245,7 @@ init()
 # главное окно/main window
 
 global_root = Tk()
-global_root.iconbitmap('icon.ico')
+global_root.iconbitmap('icon2.ico')
 global_root.geometry("1280x800")
 global_root.title("Юрок")
 global_root.protocol("WM_DELETE_WINDOW", on_closing)
@@ -256,9 +254,9 @@ global_root["bg"] = "white"
 
 
 
-global_root.image = PhotoImage(file="bg/BG_global.png")
+global_root.image = PhotoImage(file="bg/GL1 BG.png")
 back = Label(global_root, image=global_root.image, border=0)
-back.place(x=0, y=0)
+back.place(x=0, y=300)
 
 yir = Label(global_root, text="Юрок", fg="red", bg="white", font="Impact 42")
 yir2 = Label(global_root, text="-как урок, только проще!f", fg="red", bg="white", font="Impact 20")
@@ -294,7 +292,7 @@ def number1():
     root = Tk()
     root.geometry("1280x800")
     root.title("Юрок №1")
-    root.iconbitmap("icon.ico")
+    root.iconbitmap("icon2.ico")
     root.protocol("WM_DELETE_WINDOW", on_closing_number1)
     root["bg"] = "white"
 
@@ -375,7 +373,7 @@ def number2():
         root3 = Tk()
         root3.geometry("1280x800")
         root3.title("Юрок №2")
-        root3.iconbitmap("icon.ico")
+        root3.iconbitmap("icon2.ico")
         root3.protocol("WM_DELETE_WINDOW", on_closing_number23)
         root3["bg"] = "white"
 
@@ -451,7 +449,7 @@ def number2():
         root2 = Tk()
         root2.geometry("1280x800")
         root2.title("Юрок №2")
-        root2.iconbitmap("icon.ico")
+        root2.iconbitmap("icon2.ico")
         root2.protocol("WM_DELETE_WINDOW", on_closing_number22)
         root2["bg"] = "white"
 
@@ -504,7 +502,7 @@ def number2():
     root = Tk()
     root.geometry("1280x800")
     root.title("Юрок №2")
-    root.iconbitmap("icon.ico")
+    root.iconbitmap("icon2.ico")
     root.protocol("WM_DELETE_WINDOW", on_closing_number2)
     root["bg"] = "white"
 
@@ -572,7 +570,7 @@ def number3():
         root7 = Tk()
         root7.geometry("350x600")
         root7.title("Юрок №3")
-        root7.iconbitmap("icon.ico")
+        root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num3_3)
         root7["bg"] = "white"
 
@@ -595,7 +593,7 @@ def number3():
         root5 = Tk()
         root5.geometry("1280x800")
         root5.title("Юрок №3")
-        root5.iconbitmap("icon.ico")
+        root5.iconbitmap("icon2.ico")
         root5.protocol("WM_DELETE_WINDOW", on_closing_num3_2)
         root5["bg"] = "white"
 
@@ -616,7 +614,7 @@ def number3():
     root4 = Tk()
     root4.geometry("1280x800")
     root4.title("Юрок №3")
-    root4.iconbitmap("icon.ico")
+    root4.iconbitmap("icon2.ico")
     root4.protocol("WM_DELETE_WINDOW", on_closing_num3)
     root4["bg"] = "white"
 
@@ -667,7 +665,7 @@ def number4():
         root7 = Tk()
         root7.geometry("700x600")
         root7.title("Юрок №4")
-        root7.iconbitmap("icon.ico")
+        root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num4_2)
         root7["bg"] = "white"
 
@@ -684,7 +682,7 @@ def number4():
     root6 = Tk()
     root6.geometry("1280x800")
     root6.title("Юрок №4")
-    root6.iconbitmap("icon.ico")
+    root6.iconbitmap("icon2.ico")
     root6.protocol("WM_DELETE_WINDOW", on_closing_num4)
     root6["bg"] = "white"
 
@@ -810,7 +808,7 @@ def number5():
                 root9 = Tk()
                 root9.geometry("1280x800")
                 root9.title("Юрок №5")
-                root9.iconbitmap("icon.ico")
+                root9.iconbitmap("icon2.ico")
                 root9.protocol("WM_DELETE_WINDOW", on_closing_num5_4)
                 root9["bg"] = "white"
 
@@ -862,7 +860,7 @@ def number5():
             root8 = Tk()
             root8.geometry("1280x800")
             root8.title("Юрок №5")
-            root8.iconbitmap("icon.ico")
+            root8.iconbitmap("icon2.ico")
             root8.protocol("WM_DELETE_WINDOW", on_closing_num5_3)
             root8["bg"] = "white"
 
@@ -891,7 +889,7 @@ def number5():
         root7 = Tk()
         root7.geometry("1280x800")
         root7.title("Юрок №5")
-        root7.iconbitmap("icon.ico")
+        root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num5_2)
         root7["bg"] = "white"
 
@@ -916,7 +914,7 @@ def number5():
     root6 = Tk()
     root6.geometry("1280x800")
     root6.title("Юрок №5")
-    root6.iconbitmap("icon.ico")
+    root6.iconbitmap("icon2.ico")
     root6.protocol("WM_DELETE_WINDOW", on_closing_num5)
     root6["bg"] = "white"
 
@@ -945,10 +943,198 @@ def number6():
 
     lev6.start()
 
-    # noinspection PyArgumentList
+    def winner():
+        def on_closing_num6_win():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root10.destroy()
+
+        root10 = Tk()
+        root10.geometry("1280x800")
+        root10.title("Юрок №6")
+        root10.iconbitmap("icon2.ico")
+        root10.protocol("WM_DELETE_WINDOW", on_closing_num6_win)
+        root10["bg"] = "White"
+        root10.image = PhotoImage(file="bg/BG21.png")
+        back = Label(root10, image=root10.image, border=0)
+        back.place(x=20, y=20)
+        playt()
+
+    def loser():
+        def on_closing_num6_los():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root11.destroy()
+        root11 = Tk()
+        root11.geometry("1280x800")
+        root11.title("Юрок №6")
+        root11.iconbitmap("icon2.ico")
+        root11.protocol("WM_DELETE_WINDOW", on_closing_num6_los)
+        root11["bg"] = "Black"
+        root11.image = PhotoImage(file="bg/BG20.png")
+        back = Label(root11, image=root11.image, border=0)
+        back.place(x=20, y=20)
+
+    def num6_4():
+
+        global ok
+
+        def on_closing_num6_3():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root9.destroy()
+
+        root9 = Tk()
+        root9.geometry("1280x800")
+        root9.title("Юрок №6")
+        root9.iconbitmap("icon2.ico")
+        root9.protocol("WM_DELETE_WINDOW", on_closing_num6_3)
+        root9["bg"] = "white"
+
+        x = [1, 2, 4, 8]
+        x1 = random.choice(x)
+        x2 = x1 * 1024
+        xl = f"{x1} петабайт = ? терабайт "
+
+        root9.image = PhotoImage(file="bg/BG19.png")
+        back = Label(root9, image=root9.image, border=0)
+        back.place(x=20, y=20)
+
+        text1 = Label(root9, text="Сколько это в терабайтах?", fg="Black", bg="white", font="Bahnschrift 20")
+        xl_ = Label(root9, text=xl, fg="Black", bg="white", border=0, font="Bahnschrift 20")
+        otv = Entry(root9, fg="Black", bg="white", font="Bahnschrift 20", width=5)
+        gol = Label(root9, text="", fg="Black", bg="white", font="Bahnschrift 20")
+
+        def prov_num6():
+            global ok
+
+            otv_ = int(otv.get())
+            if isinstance(otv_, int):
+                if otv_ == x2:
+                    gol["fg"] = "green"
+                    gol["text"] = "Молодец! Всё верно!"
+                    ok = ok + 1
+                    root9.update()
+                    print("System: ok==", ok)
+                    time.sleep(3)
+
+                    if ok == 3 or ok > 3:
+                        gol["fg"] = 'Green'
+                        gol["text"] = "Я тебя поздравляю,\nты отлично выполнил задачку\n- на все 5 баллов!"
+                        root9.update()
+                        time.sleep(5)
+                        root9.destroy()
+                        winner()
+                    elif ok < 3 and ok > 0:
+                        gol["fg"] = 'Green'
+                        gol["text"] = "Молодец, ты хорошо выполнил задание - 4."
+                        root9.update()
+                        time.sleep(5)
+                        root9.destroy()
+                        winner()
+                    elif ok == 0:
+                        gol["fg"] = 'orange'
+                        gol["text"] = "Ты выполнил задание с потерями - 3."
+                        time.sleep(5)
+                        root9.destroy()
+                        loser()
+                    elif ok == -1 or -2 or -3 or -4 or -5 or -6 or -7 or -8 or -9 or -10 or ok < -10:
+                        gol["fg"] = 'red'
+                        gol["text"] = "Ты провалил задание - 2!"
+                        time.sleep(5)
+                        root9.destroy()
+                        loser()
+                    else:
+                        print("System: error grade")
+                else:
+                    gol["fg"] = "red2"
+                    gol["text"] = "Неверно! Error 404!"
+                    ok = ok - 1
+                    print("System: ok==", ok)
+
+            elif isinstance(otv_, str):
+                gol["fg"] = "red2"
+                gol["text"] = "Неверно! Ты ввёл не число!"
+                ok = ok - 1
+                print("System: ok==", ok)
+            else:
+                pass
+
+        prov = Button(root9, text="Проверить", fg="Black", bg="white", border=0, font="Bahnschrift 20", cursor="hand2",
+                      command=prov_num6)
+
+        text1.pack(side=TOP)
+        prov.place(x=450, y=92)
+        xl_.place(x=50,  y=100)
+        otv.place(x=373, y=100)
+        gol.place(x=660, y=100)
+
+    def num6_3():
+
+        global ok
+
+        def on_closing_num6_3():
+            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                root8.destroy()
+
+        root8 = Tk()
+        root8.geometry("1280x800")
+        root8.title("Юрок №6")
+        root8.iconbitmap("icon2.ico")
+        root8.protocol("WM_DELETE_WINDOW", on_closing_num6_3)
+        root8["bg"] = "white"
+
+        x = [1024, 2048, 4096, 8192]
+        x1 = random.choice(x)
+        x2 = x1 // 1024
+        xl = f"{x1} байт = ? килобайт "
+
+        root8.image = PhotoImage(file="bg/BG17.png")
+        back = Label(root8, image=root8.image, border=0)
+        back.place(x=20, y=20)
+
+        text1 = Label(root8, text="Сколько это в килобайтах?", fg="Black", bg="white", font="Bahnschrift 20")
+        xl_ = Label(root8, text=xl, fg="Black", bg="white", border=0, font="Bahnschrift 20")
+        otv = Entry(root8, fg="Black", bg="white", font="Bahnschrift 20", width=5)
+        gol = Label(root8, text="", fg="Black", bg="white", font="Bahnschrift 20")
+
+        def prov_num6():
+            global ok
+
+            otv_ = int(otv.get())
+            if isinstance(otv_, int):
+                if otv_ == x2:
+                    gol["fg"] = "green"
+                    gol["text"] = "Молодец! Всё верно!"
+                    ok = ok + 1
+                    root8.update()
+                    print("System: ok==", ok)
+                    time.sleep(3)
+                    root8.destroy()
+                    num6_4()
+                else:
+                    gol["fg"] = "red2"
+                    gol["text"] = "Неверно! Error 404!"
+                    ok = ok - 1
+                    print("System: ok==", ok)
+            elif isinstance(otv_, str):
+                gol["fg"] = "red2"
+                gol["text"] = "Неверно! Ты ввёл не число!"
+                ok = ok - 1
+            else:
+                pass
+
+        prov = Button(root8, text="Проверить", fg="Black", bg="white", border=0, font="Bahnschrift 20", cursor="hand2",
+                      command=prov_num6)
+
+        text1.pack(side=TOP)
+        prov.place(x=420, y=92)
+        xl_.place(x=50,  y=100)
+        otv.place(x=343, y=100)
+        gol.place(x=630, y=100)
+
     def num6_2():
 
         root6.destroy()
+
+        global ok
 
         def on_closing_num6_2():
             if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
@@ -957,7 +1143,7 @@ def number6():
         root7 = Tk()
         root7.geometry("1280x800")
         root7.title("Юрок №6")
-        root7.iconbitmap("icon.ico")
+        root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num6_2)
         root7["bg"] = "white"
 
@@ -966,16 +1152,48 @@ def number6():
         x2 = x1 // 8
         xl = f"{x1} бит = ? байт "
 
+        root7.image = PhotoImage(file="bg/BG18.png")
+        back = Label(root7, image=root7.image, border=0)
+        back.place(x=20, y=20)
+
         text1 = Label(root7, text="Сколько это в байтах?", fg="Black", bg="white", font="Bahnschrift 20")
         xl_ = Label(root7, text=xl, fg="Black", bg="white", border=0, font="Bahnschrift 20")
-        otv = Entry(root7, fg="Black", bg="white", font="Bahnschrift 20")
+        otv = Entry(root7, fg="Black", bg="white", font="Bahnschrift 20", width=5)
+        gol = Label(root7, text="", fg="Black", bg="white", font="Bahnschrift 20")
 
-        otv_ = otv.get()
+        def prov_num6():
+            global ok
+            otv_ = int(otv.get())
+            if isinstance(otv_, int):
+                if otv_ == x2:
+                    gol["fg"] = "green"
+                    gol["text"] = "Молодец! Всё верно!"
+                    ok = ok + 1
+                    root7.update()
+                    print("System: ok==", ok)
+                    time.sleep(3)
+                    root7.destroy()
+                    num6_3()
+                else:
+                    gol["fg"] = "red2"
+                    gol["text"] = "Неверно! Error 404!"
+                    ok = ok - 1
+                    print("System: ok==", ok)
+            elif isinstance(otv_, str):
+                gol["fg"] = "red2"
+                gol["text"] = "Неверно! Ты ввёл не число!"
+                ok = ok - 1
+            else:
+                pass
+
+        prov = Button(root7, text="Проверить", fg="Black", bg="white", border=0, font="Bahnschrift 20", cursor="hand2",
+                      command=prov_num6)
 
         text1.pack(side=TOP)
-        xl_.place(x=100, y=200)
-        otv.place(x=170, y=200)
-
+        prov.place(x=360, y=142)
+        xl_.place(x=50,  y=150)
+        otv.place(x=283, y=150)
+        gol.place(x=520, y=150)
 
     def on_closing_num6():
         if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
@@ -984,7 +1202,7 @@ def number6():
     root6 = Tk()
     root6.geometry("1280x800")
     root6.title("Юрок №6")
-    root6.iconbitmap("icon.ico")
+    root6.iconbitmap("icon2.ico")
     root6.protocol("WM_DELETE_WINDOW", on_closing_num6)
     root6["bg"] = "white"
 
@@ -998,7 +1216,7 @@ def number6():
     go.place(x=850, y=545)
 
 
-# кнопки в начальном окне/buttoms to global_root
+# кнопки в начальном окне(global_root)/buttoms to global_root
 n1 = Button(global_root, text="Задачка №1 - Интересные треугольники", fg="Black", bg="white",
             border=0, font="Bahnschrift 20", cursor="hand2", command=number1)
 n2 = Button(global_root, text="Задачка №2 - Помоги Генералу Гавсу отгадать загадки", fg="Black", bg="white",
@@ -1029,3 +1247,4 @@ n5.place(x=20, y=340)
 n6.place(x=20, y=400)
 sch102.place(x=900, y=70)
 global_root.mainloop()
+
