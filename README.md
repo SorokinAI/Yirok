@@ -21,11 +21,9 @@ ____
 from customtkinter import *  # main interface
 from tkinter import messagebox as ms
 ```
-Был написан простой и понятный интерфейс:
-![Интерфейс](https://drive.google.com/file/d/1R3s5WmDfG_03QRiHtZLvez023EPyvPE2/view?usp=share_link)
+Был написан простой и понятный интерфейс
+Сохранение файлов работает по простому принципу:
 
-
-И сохранение файлов:
 ```python
 def save():
     """"save lesion"""
