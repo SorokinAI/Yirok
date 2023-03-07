@@ -16,12 +16,12 @@ ____
 
 В 13-ой версии был добавлен конструктор задачек
 Было использовано всего 2 библиотеки
-```
+```python
 from customtkinter import *  # main interface
 from tkinter import messagebox as ms
 ```
 Далее на основе CTK был создан  интерфейс программы
-```
+```python
 # theme
 set_appearance_mode('light')
 set_default_color_theme('green')
@@ -66,5 +66,5 @@ app.minsize(800, 350)
 app.mainloop()
 ```
 ## У Юрок есть сайт: 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Сайт+Юрок)](https://sites.google.com/view/iurok/)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%f34336&lines=Сайт+Юрок)](https://sites.google.com/view/iurok/)
 #### Примечание: код в ветке master
