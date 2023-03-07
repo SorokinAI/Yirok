@@ -17,12 +17,13 @@ def init():
     global global_roots
     global_roots = True
 
+
 # Documentation
-print("Версия кода: 9.1")
+print("Версия кода: 9.8")
 print("                ")
 
 
-class Documentation_Level:  # дополнительная документация в консоле/documentation to console
+class Documentation_Level:  # дополнительная информация в консоле/additional information to console
     def __init__(self, number, difficulty):
 
         self.number = number
@@ -42,17 +43,17 @@ lev3 = Documentation_Level(2, 'Easy')
 lev4 = Documentation_Level(4, 'Easy')
 lev5 = Documentation_Level(5, 'Easy')
 lev6 = Documentation_Level(6, 'Hard')
-game_paint = Documentation_Level("game 1", "Easy")
+game_paint = Documentation_Level("game", "Easy")
 
 
-# game
+# мини-игра/mini-game
 
 # игровые настройки/game settings
 
 sizeA = 5
 
 
-def playt():  # код игры/game code
+def game():  # код игры/game code
     if messagebox.askokcancel("Юрок Paint", "Хотите запустить мини-игру?"):
 
         game_paint.start()
@@ -143,9 +144,8 @@ def playt():  # код игры/game code
         def down():
             turt1.back(10)
 
-        def cleargame():
+        def cleargame():  # очистка окна для рисования/clear window for paint
             wind.reset()
-
 
     # окно настройки черепашки/window setting's turtle
         gui_game = Tk()
@@ -153,7 +153,7 @@ def playt():  # код игры/game code
         gui_game.title("Параметры")
         gui_game["bg"] = "white"
         gui_game.resizable(width=False, height=False)
-        col0 = Label(gui_game, bg='white', text="Выбери цвет кисти:", font=21)
+        col0 = Label(gui_game, bg='white', text="Выбери цвет кисти:", font="Bahnschrift 21")
         col1 = Button(gui_game, text="Чёрный", fg='snow', bg='black', border=0, width=11, cursor="hand2", command=color1)
         col2 = Button(gui_game, text="Красный", fg='black', bg='red2', border=0, width=11, cursor="hand2", command=color2)
         col3 = Button(gui_game, text="Жёлтый", fg='black', bg='gold', border=0, width=11, cursor="hand2", command=color3)
@@ -163,7 +163,7 @@ def playt():  # код игры/game code
         col7 = Button(gui_game, text="Голубой", fg='black', bg='cyan', border=0, width=11, cursor="hand2", command=color7)
         col8 = Button(gui_game, text="Синий", fg='black', bg='RoyalBlue3', width=11, border=0, cursor="hand2", command=color8)
         clear = Button(gui_game, bg='white', text="Очисчить экран🧹", border=0, cursor="hand2", command=cleargame)
-        s0 = Label(gui_game, bg='white', text="Выбери размер кисти:", font=21)
+        s0 = Label(gui_game, bg='white', text="Выбери размер кисти:", font="Bahnschrift 21")
         s1 = Button(gui_game, bg='silver', text="1(маленький)", border=0, width=11, cursor="hand2", command=siz1)
         s2 = Button(gui_game, bg='silver', text="2", border=0, width=11, cursor="hand2", command=siz2)
         s3 = Button(gui_game, bg='silver', text="3", border=0, width=11, cursor="hand2", command=siz3)
@@ -197,8 +197,6 @@ def playt():  # код игры/game code
         s9.grid(column=3, row=10)
         s10.grid(column=3, row=11)
 
-        time.sleep(3)
-
         # окно рисования/window for paint
         wind.reset()
         wind.bgpic("")
@@ -222,7 +220,7 @@ def playt():  # код игры/game code
         turtle.onkeypress(up, 'w')
         turtle.onkeypress(down, 's')
 
-    # стрелочки/arrows
+    # стрелочки/arrow's
         turtle.onkeypress(right, 'Right')
         turtle.onkeypress(left, 'Left')
         turtle.onkeypress(up, 'Up')
@@ -244,6 +242,7 @@ init()
 
 # главное окно/main window
 
+
 global_root = Tk()
 global_root.iconbitmap('icon2.ico')
 global_root.geometry("1280x800")
@@ -252,14 +251,12 @@ global_root.protocol("WM_DELETE_WINDOW", on_closing)
 global_root["bg"] = "white"
 
 
-
-
 global_root.image = PhotoImage(file="bg/GL1 BG.png")
 back = Label(global_root, image=global_root.image, border=0)
 back.place(x=0, y=300)
 
 yir = Label(global_root, text="Юрок", fg="red", bg="white", font="Impact 42")
-yir2 = Label(global_root, text="-как урок, только проще!f", fg="red", bg="white", font="Impact 20")
+yir2 = Label(global_root, text="-как урок, только проще!", fg="red", bg="white", font="Impact 20")
 
 
 def site_school102():
@@ -276,7 +273,36 @@ def global_root_stop():
         pass
 
 
-# задачки
+# инструкция/instruction
+def instruction():
+
+    app = Tk()
+    app.title('Инструкция')
+    app.iconbitmap('icon2.ico')
+    app.geometry('1000x800')
+    app['bg'] = 'White'
+
+    instruction1 = Label(app, text='Инструкция для начала использования «Юрок»', bg='White', font='Bahnschrift 24')
+    v1 = Label(app, text='Как пользоваться электронной тетрадью «Юрок»?', bg='White', font='Bahnschrift 20')
+    otv1 = Label(app, text='1. Выберите нужную задачку из списка.\n'
+                           '       2.Напишите ответ в поле и нажмите кнопку\n'
+                           '                       «Проверить ответы» или выберите ответ из списка.', bg='White',
+                 font='Bahnschrift 18')
+    v2 = Label(app, text='Как играть в мини-игру?', bg='White', font='Bahnschrift 20')
+    otv2 = Label(app, text='                  1. Решите задачку на оценку «4» или выше.\n'
+                 '2. Игра откроется автоматически.\n'
+                 '               3. Выберите нужный цвет и размер кисти.\n'
+                 '                 4. Играйте с помощью стрелочек и творите\n',
+                 bg='White', font='Bahnschrift 18')
+
+    instruction1.pack(side=TOP)
+    v1.place(x=20, y=150)
+    otv1.place(x=20, y=220)
+    v2.place(x=20, y=320)
+    otv2.place(x=20, y=410)
+    app.mainloop()
+
+# задачки/leseon's
 
 
 def number1():
@@ -319,15 +345,13 @@ def number1():
                 y_or_n_num1['text'] = "Я тебя поздравляю, ты отлично выполнил задачку\n- на все 5 баллов!"
                 root.update()
                 time.sleep(3)
-                root.destroy()
-                playt()
+                game()
             elif ok >= 0 and ok < 2:
                 y_or_n_num1['fg'] = 'Green'
                 y_or_n_num1['text'] = "Молодец, ты хорошо выполнил задание - 4."
                 root.update()
                 time.sleep(3)
-                root.destroy()
-                playt()
+                game()
             elif ok < 0 and ok > -5:
                 y_or_n_num1['fg'] = 'DarkOrange2'
                 y_or_n_num1['text'] = "Ты выполнил задание с потерями - 3."
@@ -401,15 +425,13 @@ def number2():
                     y_or_n_num1["text"] = "Я тебя поздравляю, ты отлично выполнил задачку\n- на все 5 баллов!"
                     root3.update()
                     time.sleep(3)
-                    root3.destroy()
-                    playt()
+                    game()
                 elif ok < 3 and ok > 0:
                     y_or_n_num1["fg"] = 'Green'
                     y_or_n_num1["text"] = "Молодец, ты хорошо выполнил задание - 4."
                     root3.update()
                     time.sleep(3)
-                    root3.destroy()
-                    playt()
+                    game()
                 elif ok == 0:
                     y_or_n_num1["fg"] = 'orange'
                     y_or_n_num1["text"] = "Ты выполнил задание с потерями - 3."
@@ -766,8 +788,7 @@ def number5():
                         back.place(x=20, y=20)
                         root9.update()
                         time.sleep(3)
-                        root9.destroy()
-                        playt()
+                        game()
                     elif ok < 3 and ok > 0:
                         otv["fg"] = 'Green'
                         otv["text"] = "Молодец, ты хорошо выполнил задание - 4."
@@ -776,8 +797,7 @@ def number5():
                         back.place(x=20, y=20)
                         root9.update()
                         time.sleep(3)
-                        root9.destroy()
-                        playt()
+                        game()
                     elif ok == 0:
                         otv["fg"] = 'orange'
                         otv["text"] = "Ты выполнил задание с потерями - 3."
@@ -957,7 +977,7 @@ def number6():
         root10.image = PhotoImage(file="bg/BG21.png")
         back = Label(root10, image=root10.image, border=0)
         back.place(x=20, y=20)
-        playt()
+        game()
 
     def loser():
         def on_closing_num6_los():
@@ -1229,6 +1249,8 @@ n5 = Button(global_root, text="Задачка №5 - Тест на знание 
             border=0, font="Bahnschrift 20", cursor="hand2", command=number5)
 n6 = Button(global_root, text="Задачка №6 - Биты, байты и т.п.", fg="Black", bg="white",
             border=0, font="Bahnschrift 20", cursor="hand2", command=number6)
+instruction_button = Button(global_root, text="Инструкция", fg="Black", bg="White",
+                            border=0, font="Bahnschrift 24", cursor="hand2", command=instruction)
 
 url = 'bg/sch102_logo.png'
 img = PhotoImage(file=url)
@@ -1245,6 +1267,7 @@ n3.place(x=20, y=220)
 n4.place(x=20, y=280)
 n5.place(x=20, y=340)
 n6.place(x=20, y=400)
+instruction_button.place(x=1020, y=200)
 sch102.place(x=900, y=70)
 global_root.mainloop()
 

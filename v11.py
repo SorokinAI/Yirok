@@ -18,12 +18,11 @@ def init():
     global_roots = True
 
 
-# Documentation in console
-print("Версия/version: 10.5")
-print("                ")
+# info in console
+# --version 11.4
 
 
-class Documentation_Level:  # дополнительная информация в консоле/additional information to console
+class Lessions:  # работа с уроками
     def __init__(self, number, difficulty):
 
         self.number = number
@@ -35,14 +34,14 @@ class Documentation_Level:  # дополнительная информация 
 
 
 # уроки в документации/lesson's in documentation
-lev1 = Documentation_Level(1, 'Normal')
-lev2 = Documentation_Level(2, 'Hard')
-lev3 = Documentation_Level(2, 'Easy')
-lev4 = Documentation_Level(4, 'Easy')
-lev5 = Documentation_Level(5, 'Hard')
-lev6 = Documentation_Level(6, 'Hard')
-lev7 = Documentation_Level(7, 'Normal')
-game_paint = Documentation_Level("game", "game")
+lev1 = Lessions(1, 'Normal')
+lev2 = Lessions(2, 'Hard')
+lev3 = Lessions(2, 'Easy')
+lev4 = Lessions(4, 'Easy')
+lev5 = Lessions(5, 'Hard')
+lev6 = Lessions(6, 'Hard')
+lev7 = Lessions(7, 'Normal')
+game_paint = Lessions("game", "game")
 
 
 # мини-игра/mini-game
@@ -55,10 +54,12 @@ sizeA = 5
 def game():  # код игры/game code
     if messagebox.askokcancel("Юрок Paint", "Хотите запустить мини-игру?"):
 
+        messagebox.showinfo('Управление', 'Управление стрелочками!')
+
         game_paint.start()
 
         wind = turtle.Screen()
-        wind.title("Электронная тетрадь «Юрок»")
+        wind.title("Рисовалка")
         wind.setup(1280, 780)
 
         turt1 = turtle.Turtle()
@@ -211,6 +212,7 @@ def game():  # код игры/game code
         turt1.pensize(sizeA)
         turt1.showturtle()
 
+
     # джостики2/gamepad2
 
     # WASD
@@ -232,21 +234,14 @@ def game():  # код игры/game code
         pass
 
 
-def on_closing():  # выход/exit
-    if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
-        global_root.destroy()
-
-
 init()
 
 # главное окно/main window
 
-
 global_root = Tk()
 global_root.iconbitmap('icon2.ico')
-global_root.geometry("1280x800")
+global_root.state('zoomed')
 global_root.title("Юрок")
-global_root.protocol("WM_DELETE_WINDOW", on_closing)
 global_root["bg"] = "white"
 
 
@@ -287,15 +282,15 @@ def instruction():
     instruction1 = Label(app, text='Инструкция для начала использования «Юрок»', bg='White', font='Bahnschrift 24')
     v1 = Label(app, text='Как пользоваться электронной тетрадью «Юрок»?', bg='White', font='Bahnschrift 20')
     otv1 = Label(app, text='1. Выберите нужную задачку из списка.\n'
-                           '       2.Напишите ответ в поле и нажмите кнопку\n'
-                           '                       «Проверить ответы» или выберите ответ из списка.', bg='White',
-                 font='Bahnschrift 18')
+                           '2. Напишите ответ в поле и нажмите кнопку\n'
+                           '«Проверить ответы» или выберите ответ из списка.',
+                 bg='white', justify='left', font='Bahnschrift 18')
     v2 = Label(app, text='Как играть в мини-игру?', bg='White', font='Bahnschrift 20')
-    otv2 = Label(app, text='                  1. Решите задачку на оценку «4» или выше.\n'
+    otv2 = Label(app, text='1. Решите задачку на оценку «4» или выше.\n'
                  '2. Игра откроется автоматически.\n'
-                 '               3. Выберите нужный цвет и размер кисти.\n'
-                 '                 4. Играйте с помощью стрелочек и творите\n',
-                 bg='White', font='Bahnschrift 18')
+                 '3. Выберите нужный цвет и размер кисти.\n'
+                 '4. Играйте с помощью стрелочек и творите\n',
+                 bg='White', justify='left', font='Bahnschrift 18')
     site_yirok = Button(app, text='Подробнее о проекте на сайте', bg='White', fg='Silver', font='Bahnschrift 20',
                         cursor='hand2', border=0, activeforeground='orange', command=open_yirok)
 
@@ -307,7 +302,7 @@ def instruction():
     site_yirok.pack(side=BOTTOM)
     app.mainloop()
 
-# задачки/leseon's
+# задачки/leseons
 
 
 def number1():
@@ -317,11 +312,11 @@ def number1():
     global ok
 
     def on_closing_number1():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root.destroy()
 
     root = Tk()
-    root.geometry("1280x800")
+    root.state('zoomed')
     root.title("Юрок №1")
     root.iconbitmap("icon2.ico")
     root.protocol("WM_DELETE_WINDOW", on_closing_number1)
@@ -329,7 +324,7 @@ def number1():
 
     root.image = PhotoImage(file="bg/BG.png")
     back = Label(root, image=root.image, border=0)
-    back.place(x=150, y=20)
+    back.place(x=200, y=0)
 
     def prover_num1():  # проверка номера 1/examination number 1
         global ok
@@ -377,10 +372,10 @@ def number1():
                font="Bahnschrift 20")
     otv1 = Entry(root, fg="Black", bg="white", font="Bahnschrift 20")
     otv2 = Entry(root, fg="Black", bg="white", font="Bahnschrift 20")
+
     provbutt = Button(root, text="Проверить ответы", fg="Black", bg="white", border=1,
                       font="Bahnschrift 20", cursor="hand2", command=prover_num1)
-    y_or_n_num1 = Label(root, text="  ", fg="Black", bg="white",
-          font="Bahnschrift 20")
+    y_or_n_num1 = Label(root, text="  ", fg="Black", bg="white", font="Bahnschrift 20")
 
     z1.place(x=100, y=350)
     z2.place(x=100, y=450)
@@ -396,11 +391,11 @@ def number2():
         global ok
 
         def on_closing_number23():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root3.destroy()
 
         root3 = Tk()
-        root3.geometry("1280x800")
+        root3.state('zoomed')
         root3.title("Юрок №2")
         root3.iconbitmap("icon2.ico")
         root3.protocol("WM_DELETE_WINDOW", on_closing_number23)
@@ -470,11 +465,11 @@ def number2():
         global ok
 
         def on_closing_number22():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root2.destroy()
 
         root2 = Tk()
-        root2.geometry("1280x800")
+        root2.state('zoomed')
         root2.title("Юрок №2")
         root2.iconbitmap("icon2.ico")
         root2.protocol("WM_DELETE_WINDOW", on_closing_number22)
@@ -523,11 +518,11 @@ def number2():
     global_root_stop()
 
     def on_closing_number2():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root.destroy()
 
     root = Tk()
-    root.geometry("1280x800")
+    root.state('zoomed')
     root.title("Юрок №2")
     root.iconbitmap("icon2.ico")
     root.protocol("WM_DELETE_WINDOW", on_closing_number2)
@@ -535,7 +530,7 @@ def number2():
 
     root.image = PhotoImage(file="bg/BG3V2.png")
     back = Label(root, image=root.image, border=0)
-    back.place(x=150, y=20)
+    back.place(x=20, y=-80)
 
     def prover_num2():
 
@@ -566,8 +561,8 @@ def number2():
 
     z2.place(x=500, y=450)
     otv2.place(x=630, y=450)
-    provbutt.place(x=100, y=550)
-    y_or_n_num1.place(x=400, y=550)
+    provbutt.place(x=100, y=450)
+    y_or_n_num1.place(x=450, y=500)
 
 
 def number3():
@@ -591,7 +586,7 @@ def number3():
             number3()
 
         def on_closing_num3_3():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root7.destroy()
 
         root7 = Tk()
@@ -609,16 +604,15 @@ def number3():
                     border=0, font="Bahnschrift 20", cursor="hand2", command=reset_num3)
         go.place(x=50, y=545)
 
-
     def num3_2():
         root4.destroy()
 
         def on_closing_num3_2():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root5.destroy()
 
         root5 = Tk()
-        root5.geometry("1280x800")
+        root5.state('zoomed')
         root5.title("Юрок №3")
         root5.iconbitmap("icon2.ico")
         root5.protocol("WM_DELETE_WINDOW", on_closing_num3_2)
@@ -633,13 +627,12 @@ def number3():
 
         text2.place(x=30, y=570)
 
-
     def on_closing_num3():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root4.destroy()
 
     root4 = Tk()
-    root4.geometry("1280x800")
+    root4.state('zoomed')
     root4.title("Юрок №3")
     root4.iconbitmap("icon2.ico")
     root4.protocol("WM_DELETE_WINDOW", on_closing_num3)
@@ -675,7 +668,7 @@ def number4():
     lev4.start()
 
     def on_closing_num4():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root6.destroy()
 
     def num4_2():
@@ -686,11 +679,11 @@ def number4():
             number4()
 
         def on_closing_num4_2():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root7.destroy()
 
         root7 = Tk()
-        root7.geometry("700x600")
+        root7.state('zoomed')
         root7.title("Юрок №4")
         root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num4_2)
@@ -707,7 +700,7 @@ def number4():
 
 
     root6 = Tk()
-    root6.geometry("1280x800")
+    root6.state('zoomed')
     root6.title("Юрок №4")
     root6.iconbitmap("icon2.ico")
     root6.protocol("WM_DELETE_WINDOW", on_closing_num4)
@@ -742,7 +735,7 @@ def number5():
     lev5.start()
 
     def on_closing_num5():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root6.destroy()
 
     def num5_2():
@@ -827,11 +820,11 @@ def number5():
                     otv["text"] = "Неверно, попробуй снова!"
 
                 def on_closing_num5_4():
-                    if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                    if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                         root9.destroy()
 
                 root9 = Tk()
-                root9.geometry("1280x800")
+                root9.state('zoomed')
                 root9.title("Юрок №5")
                 root9.iconbitmap("icon2.ico")
                 root9.protocol("WM_DELETE_WINDOW", on_closing_num5_4)
@@ -879,11 +872,11 @@ def number5():
                 otv["text"] = "Неверно, попробуй снова!"
 
             def on_closing_num5_3():
-                if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+                if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                     root8.destroy()
 
             root8 = Tk()
-            root8.geometry("1280x800")
+            root8.state('zoomed')
             root8.title("Юрок №5")
             root8.iconbitmap("icon2.ico")
             root8.protocol("WM_DELETE_WINDOW", on_closing_num5_3)
@@ -908,11 +901,11 @@ def number5():
             otv.place(x=700, y=500)
 
         def on_closing_num5_2():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root7.destroy()
 
         root7 = Tk()
-        root7.geometry("1280x800")
+        root7.state('zoomed')
         root7.title("Юрок №5")
         root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num5_2)
@@ -937,7 +930,7 @@ def number5():
         otv.place(x=700, y=500)
 
     root6 = Tk()
-    root6.geometry("1280x800")
+    root6.state('zoomed')
     root6.title("Юрок №5")
     root6.iconbitmap("icon2.ico")
     root6.protocol("WM_DELETE_WINDOW", on_closing_num5)
@@ -966,11 +959,11 @@ def number6():
 
     def winner():
         def on_closing_num6_win():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root10.destroy()
 
         root10 = Tk()
-        root10.geometry("1280x800")
+        root10.state('zoomed')
         root10.title("Юрок №6")
         root10.iconbitmap("icon2.ico")
         root10.protocol("WM_DELETE_WINDOW", on_closing_num6_win)
@@ -982,10 +975,10 @@ def number6():
 
     def loser():
         def on_closing_num6_los():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root11.destroy()
         root11 = Tk()
-        root11.geometry("1280x800")
+        root11.state('zoomed')
         root11.title("Юрок №6")
         root11.iconbitmap("icon2.ico")
         root11.protocol("WM_DELETE_WINDOW", on_closing_num6_los)
@@ -999,11 +992,11 @@ def number6():
         global ok
 
         def on_closing_num6_3():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root9.destroy()
 
         root9 = Tk()
-        root9.geometry("1280x800")
+        root9.state('zoomed')
         root9.title("Юрок №6")
         root9.iconbitmap("icon2.ico")
         root9.protocol("WM_DELETE_WINDOW", on_closing_num6_3)
@@ -1092,7 +1085,7 @@ def number6():
         global ok
 
         def on_closing_num6_3():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root8.destroy()
 
         root8 = Tk()
@@ -1158,11 +1151,11 @@ def number6():
         global ok
 
         def on_closing_num6_2():
-            if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
                 root7.destroy()
 
         root7 = Tk()
-        root7.geometry("1280x800")
+        root7.state('zoomed')
         root7.title("Юрок №6")
         root7.iconbitmap("icon2.ico")
         root7.protocol("WM_DELETE_WINDOW", on_closing_num6_2)
@@ -1217,11 +1210,11 @@ def number6():
         gol.place(x=520, y=150)
 
     def on_closing_num6():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root6.destroy()
 
     root6 = Tk()
-    root6.geometry("1280x800")
+    root6.state('zoomed')
     root6.title("Юрок №6")
     root6.iconbitmap("icon2.ico")
     root6.protocol("WM_DELETE_WINDOW", on_closing_num6)
@@ -1283,15 +1276,15 @@ def number7():
 
     global ok
 
-    def on_closing_number1():
-        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+    def on_closing_number7():
+        if messagebox.askokcancel("Выход из приложения", "Вы точно хотите выйти из приложения?\nВесь прогресс будет утерян!"):
             root.destroy()
 
     root = Tk()
-    root.geometry("1280x800")
+    root.state('zoomed')
     root.title("Юрок №7")
     root.iconbitmap("icon2.ico")
-    root.protocol("WM_DELETE_WINDOW", on_closing_number1)
+    root.protocol("WM_DELETE_WINDOW", on_closing_number7)
     root["bg"] = "white"
 
     root.image = PhotoImage(file="bg/BG22.png")
