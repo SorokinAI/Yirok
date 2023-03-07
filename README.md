@@ -66,5 +66,5 @@ app.minsize(800, 350)
 app.mainloop()
 ```
 ## У Юрок есть сайт: 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%f34336&lines=Сайт+Юрок)](https://sites.google.com/view/iurok/)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Сайт+Юрок)](https://sites.google.com/view/iurok/)
 #### Примечание: код в ветке master
