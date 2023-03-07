@@ -18,7 +18,7 @@ def save():
         true.close()
         # photo (bg)
         photo = open(f'{e4.get()}/bg.txt', 'w')
-        photo.write(e2.get())
+        photo.write(f"{e4.get()}/{e2.get()}")
         photo.close()
         # comment
         comment = open(f'{e4.get()}/comment.txt', 'w')
