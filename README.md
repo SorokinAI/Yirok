@@ -16,3 +16,4 @@ ____
 ## У Юрок есть сайт: 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Сайт+Юрок)](https://sites.google.com/view/iurok/)
 #### Примечание: код в ветке master
+Я разрабатывал этот проект в возрасте 11-12 лет.
